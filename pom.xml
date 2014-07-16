@@ -14,6 +14,13 @@
         <project.srcDirectory>src</project.srcDirectory>
         <android.plugin.version>3.8.2</android.plugin.version>
 	</properties>
+    
+    <repositories>
+        <repository>
+            <id>android-support</id>
+            <url>file://${env.ANDROID_HOME}/extras/android/m2repository</url>
+        </repository>
+    </repositories>
 
 	<dependencies>
         <!-- Android -->
@@ -24,17 +31,17 @@
 			<scope>provided</scope>
 		</dependency>
         <dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android-support-v4</artifactId>
-			<version>20.0.0-rc1</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>com.android.support</groupId>
+            <artifactId>support-v4</artifactId>
+            <version>19.1.0</version>
+        </dependency>
         <dependency>
             <groupId>com.google.android.gms</groupId>
             <artifactId>google-play-services</artifactId>
             <version>12</version>
             <type>apklib</type>
         </dependency>
+        
         <!-- -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -113,7 +120,7 @@
 				<artifactId>android-maven-plugin</artifactId>
 				<configuration>
 					<sdk>
-						<platform>16</platform>
+						<platform>14</platform>
 					</sdk>
                 </configuration>
 			</plugin>
@@ -122,6 +129,13 @@
 			    <artifactId>lifecycle-mapping</artifactId>
 			    <version>1.0.0</version>
 			</plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
 		</plugins>
 	</build>
 </project>
